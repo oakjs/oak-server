@@ -2,6 +2,8 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var commandIndex = 1;
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
@@ -14,22 +16,17 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
   });
 
-  socket.on('action', function (action) {
-    console.log("Got the action: " + action);
-    action = JSON.parse(action);
-    switch (action.type) {
+  socket.on('command', function (command) {
+    console.log("Got the command: " + command);
+    command = JSON.parse(command);
+    switch (command.type) {
       case 'message': 
-        socket.emit('chat message', action.value);
+        socket.emit('command', JSON.stringify({index: commandIndex++, replyTo: command.index, type: 'message', value: command.value}));
         break;
-      case 'announce': // no reason other than to remind myself.
-        io.emit('chat message', action.value);
-        break;
+
       default:
-        socket.emit('chat message', "I can't hear you!");
+        socket.emit('message', "I can't hear you!");
     }
-    // if (action.type == 'message') {
-    //   io.emit('chat message', action.value);
-    // }
   });
 
   socket.on('disconnect', function(){

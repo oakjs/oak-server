@@ -22,14 +22,18 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
+    var commandIndex = 1;
     var socket = io();
     $('form').submit(function(){
-      socket.emit('action', JSON.stringify({type: 'message', value: $('#m').val()}));
+      socket.emit('command', JSON.stringify({index: commandIndex++, replyTo: null, type: 'message', value: $('#m').val()}));
       $('#m').val('');
       return false;
     });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
+    socket.on('command', function(msg){
+      console.log("Got a command: " + msg);
+      msg = JSON.parse(msg);
+      if (msg.type == 'message')
+        $('#messages').append($('<li>').text(msg.value));
     });
     </script>    
   </body>
