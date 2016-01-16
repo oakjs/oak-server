@@ -14,6 +14,24 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
   });
 
+  socket.on('action', function (action) {
+    console.log("Got the action: " + action);
+    action = JSON.parse(action);
+    switch (action.type) {
+      case 'message': 
+        socket.emit('chat message', action.value);
+        break;
+      case 'announce': // no reason other than to remind myself.
+        io.emit('chat message', action.value);
+        break;
+      default:
+        socket.emit('chat message', "I can't hear you!");
+    }
+    // if (action.type == 'message') {
+    //   io.emit('chat message', action.value);
+    // }
+  });
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });

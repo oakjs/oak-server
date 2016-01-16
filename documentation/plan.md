@@ -1,7 +1,7 @@
 ## Tasks
 
 * [x] Basic websocket server. We'll use express and Socket.io. See model app in resources below.
-* [ ] Communication protocol (essentially analogous of flux/redux actions)
+* [x] Communication protocol (essentially analogous to flux/redux actions)
 * [ ] Function to bundle up the meta-information of a project stored in a directory structure
 * [ ] Actions to 
   * [ ] Return meta-information on a project
