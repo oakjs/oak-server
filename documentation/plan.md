@@ -1,7 +1,7 @@
 ## Tasks
 
 * Basic websocket server. We'll use express and Socket.io. See model app in resources below.
-* Communication protocol (essentially an extended version of flux/redux actions)
+* Communication protocol (essentially analogous of flux/redux actions)
 * Function to bundle up the meta-information of a project stored in a directory structure
 * Actions to 
   * Return meta-information on a project
@@ -10,6 +10,7 @@
 * Implement subscription to changes by a client that works on a project
   * Internal tracking infrastructure
   * Notifications
+* User authentication and access control
 
 ## Resources
 

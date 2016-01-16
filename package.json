@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/oakjs/oak-server/issues"
   },
-  "homepage": "https://github.com/oakjs/oak-server#readme"
+  "homepage": "https://github.com/oakjs/oak-server#readme",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.4.4"
+  }
 }
