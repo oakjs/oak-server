@@ -6,6 +6,7 @@
 * Actions to 
   * Return meta-information on a project
   * Return specific resources
+* FS watchers (directory, file, directory hierarchy)
 * Implement subscription to changes by a client that works on a project
   * Internal tracking infrastructure
   * Notifications
