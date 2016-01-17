@@ -13,7 +13,7 @@
 * [ ] Implement subscription to changes by a client that works on a project
   * [ ] Internal tracking
   * [ ] Notifications
-* [ ] User authentication and access control
+* [ ] User authentication and access control (http://passportjs.org/)
 
 ## Resources
 
